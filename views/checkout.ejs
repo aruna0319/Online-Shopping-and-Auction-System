@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <title>Checkout: Review order</title>
+  <link href="https://secureir.ebaystatic.com/rs/v/zjay2r4yley1teyods0gjhkkfim.css" rel="stylesheet" type="text/css">
+  <link href="https://secureir.ebaystatic.com/rs/v/otqdllryge3ojfyf1w5hkkmol2d.css" rel="stylesheet" type="text/css">
+  <script src="https://secureir.ebaystatic.com/rs/v/yyfoihlwci4xzplw3vqw45xz1m0.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <div class="xo container">
+    <div class="row-fluid" id="header">
+      <div class="span9">
+        <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="https://secureir.ebaystatic.com/rs/v/32q2wauokmyjletm4byq40w5s2i.css?proc=DU:N"></link><![endif]-->
+
+
+        <div class="gh-acc-exp-div">
+          <a class="gh-acc-a" href="#mainContent" id="gh-hdn-stm">Skip to main content</a>
+        </div>
+        <!--[if lt IE 9]><div id="gh" class="gh-IE8 gh-flex gh-w gh-minH no-touch "><![endif]--><!--[if (gte IE 9)|!(IE)]><!-->
+
+
+        <div class="gh-flex gh-w gh-minH no-touch" id="gh">
+          <!--<![endif]-->
+
+
+          <table class="gh-tbl">
+            <tbody>
+              <tr>
+                <td class="gh-td">
+                  <!--[if lt IE 9]><a href="/" class="iclg" _sp="m570.l2586" id="gh-la">eBay<img width="117" height="120" style="clip:rect(47px, 118px, 95px, 0px); position:absolute; top:-47px;left:0" alt="" src="https://secureir.ebaystatic.com/rs/v/apstidvcvu5pxlbxkphrrdo5iqv.png" id="gh-logo"></a><![endif]-->
+                  <!--[if (gte IE 9)|!(IE)]><!--><a class="iclg" href="/" id="gh-la">eBay<img alt="" height="200" id="gh-logo" src="https://secureir.ebaystatic.com/rs/v/fxxj3ttftm5ltcqnto1o4baovyl.png" style="clip:rect(47px, 118px, 95px, 0px); position:absolute; top:-47px;left:0" width="250"></a><!--<![endif]-->
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!--ts:2014.11.29.01:03--><!--rq:--><!--rvr:59rc5-->
+
+
+        <h1 class="shpt"><a id="mainContent" name='mainContent' tabindex='-1'></a> Checkout: Review order</h1>
+      </div>
+
+
+      <div class="span3" style="text-align: right">
+        <div class="font1 surveysbc">
+          <span>How do you like our new checkout?</span>
+        </div>
+
+
+        <div class="font1">
+          <span><a class="survey" href="javascript:;">Tell us what you think</a></span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mt10" id="pagelevelerrors">
+      <div id="statusmessage">
+        <div class="sm-co sm-in">
+          <i class="gspr icmin" id="almsg"></i>
+
+          <p>You're almost done! Until you complete checkout, another eBay user may buy this item.</p>
+
+
+          <ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row-fluid mt10" id="centralarea">
+      <form action="purchase" id="pageform" method="post" name="pageform">
+        <div class="span8" id="leftsection">
+          <div class="row-fluid m-cnt" id="topsection">
+            <div class="span6 shippingaddress" id="shippingaddress">
+              <h2 class="font4 topsecborder"><span class="i-shipto"></span>Ship to</h2>
+
+
+              <div>
+                <%=person[0].first_name%>
+              </div>
+
+
+              <div>
+                <%=person[0].address%>
+              </div>
+
+
+              <div>
+                <%=person[0].city%>
+              </div>
+
+
+              <div>
+                <%=person[0].state%>, <%=person[0].zip_code%>
+              </div>
+
+
+              <div>
+                <%=person[0].country%>s
+              </div>
+
+
+              <div>
+                <%=person[0].contact%>
+              </div>
+
+
+              <div class="mt10">
+                <a class="changeaddress" href="javascript:;" id="chgShipping" title="change address - opens in a new layer">Change address</a>
+              </div>
+
+
+              <div data-load="saddr">
+              </div>
+            </div>
+
+
+            <div class="span6 paymentmethods" id="turbopaymentmethods">
+            </div>
+
+
+            <div class="span6 paymentmethods" id="paymentmethods">
+              <h2 class="font4 topsecborder"><span class="i-paywith"></span>Pay with</h2>
+
+
+              <div id="deflay">
+                <ul class="mb10">
+                  <li>
+                    <input checked="checked" id="PAYPAL_NOLINK" name="pmtmthd" type="radio" value="PAYPAL_NOLINK"><label for="PAYPAL_NOLINK"><img alt="PAYPAL_NOLINK" border="0" src="https://secureir.ebaystatic.com/pictures/aw/pics/checkout/payments/paypal/ppguest_1.gif" title="PAYPAL_NOLINK"></label>
+
+                    <div class="bmldiv" style="padding-left: 28px;">
+                      Processed by PayPal
+                    </div>
+                  </li>
+
+
+                  <li><input id="PAYPAL" name="pmtmthd" type="radio" value="PAYPAL"><label for="PAYPAL"><img alt="PAYPAL" border="0" src="https://secureir.ebaystatic.com/pictures/aw/pics/checkout/payments/paypal/pymt_paypal.png" title="PAYPAL"></label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+
+            <div id="thirdpartydocuments">
+            </div>
+
+
+            <div id="thirdpartydocumentoverlays">
+            </div>
+          </div>
+
+
+          <div class="row-fluid" id="cartdetails">
+            <h2 class="offscreen">Cart Details</h2>
+
+
+            <div class="row-fluid sellerbucket" id="s0">
+              <div class="row-fluid" id="s0_content">
+                <div id="si_s0" style="margin:20px 0">
+                  <h3 class="offscreen">Seller &nbsp;youbuyrite</h3>
+
+
+                  <div class="row-fluid">
+                    <div class="span6 nowrap">
+                      <span class="seller"><span class="i-seller"></span><span title="youbuyrite">youbuyrite</span></span><span class="seller-message" id="msglink_s0"><span class="i-mts" title="s0"></span><a class="amlink" href="javascript:;" id="amtslink_s0" title="Add message">Add message</a></span>
+
+                      <div class="addmessage" id="amtslayer_s0">
+                        <div class="amts-arrow">
+                          <span class="i-arrow"></span>
+                        </div>
+
+                        <textarea class="mb10 mtstxtarea" cols="50" id="amtstext_s0" name="amtstext_s0" rows="5">
+</textarea>
+
+                        <div class="mb10 ws">
+                          <span id="charc_s0" style="color:orange">500</span> character(s) maximum. No HTML allowed.
+                        </div>
+
+
+                        <div>
+                          <a class="btn btn-s btn-scnd" href="javascript:;" id="ambtn_s0">Add message</a> &nbsp;&nbsp;&nbsp; <a href="javascript:;" id="camts_s0">Close</a>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="span6 selleraction">
+                    </div>
+                  </div>
+
+
+                  <div class="addmsg" id="sellernote_s0">
+                  </div>
+                  
+                </div>
+
+
+                <div class="row-fluid itemimg" id="is_s0_i0">
+                  <div class="span2 mb15 imgIdx1">
+                    <span class="l-shad lftd" style="width:96px; height:96px;"><span style="width:96px; height:96px;"><span class="imgt" style="width:96px; height:96px;"><img></span></span></span>
+                  </div>
+
+
+                  <div class="span10">
+                    <div class=" fc000 mb15" id="its_s0_i0">
+                      
+                 <% 
+				 var totalPrice= (checkout[0].p_cost * qty);
+				 %>
+
+                      <div class="row-fluid">
+                        <div class="span8 font3 titpad" id="ititle_s0_i0">
+                          <div class="itmtitle">
+                            <%=checkout[0].p_name%>
+                          </div>
+                        </div>
+
+
+                        <div class="span1 font1 qty nowrap">
+                          Qty: <%=qty%>
+                        </div>
+
+
+                        <div class="span3 itmprice">
+                          <span>$<%=checkout[0].p_cost%></span><span style="padding-left: 15px; display: inline-block">&nbsp;</span>
+                        </div>
+                      </div>
+                    
+                    </div>
+
+
+                    <div class="shipdiv">
+                      <fieldset>
+                        <legend class="ally">Choose a shipping service</legend>
+
+                        <ul>
+                          <li>
+                            <div class="row-fluid mb15">
+                              <div class="span1 shpradio">
+                                <input id="ss_s0_i0_0" name="ss_s0_i0" type="radio" value="27982927179">
+                              </div>
+
+
+                              <div class="span9">
+                                <label for="ss_s0_i0_0"><span class="fc000">Promotional Expedited Shipping <span>- FREE</span><span></span></span><br>
+                                <span class="font2 fc6b"><span class="fcdarkgreen">FAST 'N FREE</span></span></label>
+                              </div>
+                            </div>
+                          </li>
+
+
+                          <li>
+                            <div class="row-fluid mb15">
+                              <div class="span1 shpradio">
+                                <input checked="checked" id="ss_s0_i0_1" name="ss_s0_i0" type="radio" value="27982876995">
+                              </div>
+
+
+                              <div class="span9">
+                                <label for="ss_s0_i0_1"><span class="fc000">USPS Priority Mail<span></span></span><br>
+                                <span class="font2 fc6b"></span></label>
+                              </div>
+
+
+                              <div class="span2 pr23">
+                                FREE
+                              </div>
+                            </div>
+                          </li>
+
+
+                          <li>
+                            <div class="row-fluid mb15">
+                              <div class="span1 shpradio">
+                                <input id="ss_s0_i0_2" name="ss_s0_i0" type="radio" value="27982877007">
+                              </div>
+
+
+                              <div class="span9">
+                                <label for="ss_s0_i0_2"><span class="fc000">UPS Next Day Air Saver <span>- $30.00</span><span></span></span><br>
+                                <span class="font2 fc6b"></span></label>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </fieldset>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div id="sd_s0">
+                  
+                </div>
+              </div>
+            </div>
+
+
+            <div data-load="ctds">
+            </div>
+          </div>
+
+          <div class="row-fluid">
+            <div class="span12" id="bottomsec">
+              <div id="incentiveentry">
+                <div class="mb10 talt">
+                  <label class="cplabel" for="xocpnety_cnt">Redemption code</label><a class="i-bubble" data-bubble="" data-content=" &lt;div class='bubble'&gt;&lt;p&gt;Coupons, gift cards, or certificates can only be redeemed when paying with PayPal&lt;/p&gt;&lt;ul&gt;&lt;/ul&gt;&lt;/div&gt;" href="javascript:;" id="incetyhelp"></a>
+                </div>
+
+
+                <div style="position: relative">
+                  <input id="xocpnety_cnt" maxlength="17" name="xocpnety" spellcheck="false" type="text"><a class="btn btn-m btn-ter" href="javascript:;" id="but_aplycpn" style="position: absolute; right: -7px; top: 0" title="Redemption code">Apply</a><span class="lar-thr" style="position: absolute; top: 0px; right: -47px; display: none"></span>
+
+                  <div class="err hide mt10 talt" id="cpnerr">
+                    Please enter the redemption code.
+                  </div>
+                </div>
+              </div>
+
+
+              <div>
+              </div>
+
+
+              <div id="incentivedisplay">
+              </div>
+
+
+              <div id="captcha">
+              </div>
+
+
+              <div id="cartsummary">
+                <h2 class="offscreen">Cart Summary</h2>
+
+                <hr id="summaryhr">
+
+
+                <table width="100%">
+                  <tr>
+                    <th class="pb10 tart" nowrap='nowrap'>Total</th>
+
+                    <th class="cscost" nowrap='nowrap' width="20%">$<%=totalPrice%></th>
+                  </tr>
+                </table>
+                
+              </div>
+
+
+              <div id="rewardsdisplay">
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="span4" id="floatdiv">
+          <div class="row-fluid rightrail" id="rightrail">
+            <h2 class="offscreen">Total Amount</h2>
+
+
+            <div class="s-cnt">
+              <div style="margin-right: 15px; background-color: #FFF;">
+                <span>Total &nbsp; &nbsp;</span><span class="font7" id="amount">$<%=totalPrice%></span>
+              </div>
+
+
+              <div id="ebptext" style="margin-right: 15px;">
+                Covered by the <span class="ebptxt">eBay Money Back Guarantee</span>
+              </div>
+            </div>
+
+
+            <div class="recedge">
+              &nbsp;
+            </div>
+
+
+            <div id="rightrailmessage">
+              <div class="mb15" id="ctntext">
+                Continue to PayPal to complete your purchase
+              </div>
+            </div>
+
+
+            <div>
+              <span class="lar-thr hide" id="rypsubmit-thr"></span><input class="btn btn-prim" id="rypsubmit" style="width: 60%" title="Continue" type="submit" value="Continue">
+            </div>
+
+
+              </div>
+            </div>
+       
+
+
+        <div class="comments">
+        </div>
+      </form>
+    </div>
+    
+
+    <div class="row-fluid" id="globalfooter">
+      <div class="gh-w gh-flex" id="glbfooter">
+        <div>
+          <div id="rtm_html_1650">
+          </div>
+
+
+          <div id="rtm_html_1651">
+          </div>
+        </div>
+
+
+        <h2 class="gh-ar-hdn">Additional site navigation</h2>
+      </div>
+      
+    </div>
+    </body>
+    </html>

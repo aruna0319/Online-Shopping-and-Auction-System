@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Update Item</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content=""><!-- Bootstrap style -->
+    <link href="/themes/bootshop/bootstrap.min.css" id="callCss" media="screen"
+    rel="stylesheet">
+    <link href="/themes/css/base.css" media="screen" rel="stylesheet">
+    <!-- Bootstrap style responsive -->
+    <link href="/themes/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="/themes/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <!-- Google-code-prettify -->
+    <link href="/themes/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <!-- fav and touch icons -->
+    <link rel="shortcut icon" href="/themes/images/ico/favicon.ico">
+    <link href="/themes/images/ico/apple-touch-icon-144-precomposed.png" rel=
+    "apple-touch-icon-precomposed" sizes="144x144">
+    <link href="/themes/images/ico/apple-touch-icon-114-precomposed.png" rel=
+    "apple-touch-icon-precomposed" sizes="114x114">
+    <link href="/themes/images/ico/apple-touch-icon-72-precomposed.png" rel=
+    "apple-touch-icon-precomposed" sizes="72x72">
+    <link href="/themes/images/ico/apple-touch-icon-57-precomposed.png" rel=
+    "apple-touch-icon-precomposed">
+    <style type="text/css" id="enject">
+
+</style>
+</head>
+
+<body>
+   <div id="header">
+<div class="container">
+<div id="welcomeLine" class="row">
+	<div class="span6"><div class="pull-left">
+	<%if(name!==null && lastLogin!==null){%>
+	<p style="font-weight:bold">Hi  <%=name%>!  |
+	<a href="/logout" style="cursor:pointer; color:blue">Logout</a>  | <%=lastLogin%> </p>
+	<%}%>
+	<%if(name===null && lastLogin===null){%>
+	<p style="font-weight:bold">Hi! <a href="/login" style="cursor:pointer; color:blue">Sign in</a> or
+	<a href="/register" style="cursor:pointer; color:blue">Register</a></p>
+	<%}%>
+	
+	</div></div>
+
+	<div class="span6">
+	
+	<div class="pull-right">
+	<a href="/sellerLogin" value="Sell">Sell Item</a>
+	<a href="/showCart"><span class="btn btn-mini btn-primary"><i class="icon-shopping-cart icon-white"></i> Shopping Cart </span> </a> 
+	</div>
+	</div>
+</div>
+<!-- Navbar ================================================== -->
+
+<div id="logoArea" class="navbar">
+<a id="smallScreen" data-target="#topMenu" data-toggle="collapse" class="btn btn-navbar">
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+</a>
+  <div class="navbar-inner">
+    <a class="brand" href="index"><img src="/themes/images/logo.png" alt="Bootsshop"/></a>
+		
+    <ul id="topMenu" class="nav pull-right">
+	
+	<%if(name===null && lastLogin===null){%>
+	 	 
+	 	 <a href="#login" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-success">Sign in</span></a>
+         <a href="/register" role="button" data-toggle="modal" style="padding-right:0; width:100"><span class="btn btn-large btn-success">Register</span></a>
+	<%}%>
+	
+	<div id="login" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="false" >
+		 
+		 
+	</div>
+	 </li>
+    </ul>
+  </div>
+</div>
+</div>
+</div>
+    <!-- Header End====================================================================== -->
+    
+    <div id="mainBody">
+        <div class="container">
+		<div style="color:red"><%=message%></div><br>
+        <form name="UpdateProduct" method="post" action="/updateProduct">
+			<div class="productname">
+            	<input name="productName" type="text" autofocus required id="productName" placeholder="Enter Product Name" value="<%=productInfo[0].p_name%>" autocomplete="on" style="width: 930px;">
+            </div>
+
+		 	<div class="productcategory">
+           		<label>Category</label>
+					<select name="category" required id="category" onchange="changeType()">
+					<%for(var i=0;i<categories.length;i++)
+					{%>
+						<option <%if (categories[i].p_category === productInfo[0].p_category){%> selected<%}%>  ><%=categories[i].p_category%></option>
+					<%}
+					%>
+    	   	   </select>
+        	</div>
+            <div class="producttype">
+	           <label>Type</label>
+				<select name="type" required id="type">
+					<option selected> <%=productInfo[0].p_type %> </option>
+
+<!--				<option>1</option>
+					<option>2</option>
+					<option>3</option>
+-->
+               </select>
+             </div>
+			 
+			<div class="productcondition">
+            <label>Condition</label>
+                <select name="condition" required id="condition">
+					<option>New</option>
+                    <option>Manufacturer Refurbished</option>
+                    <option>Seller Refurbished</option>
+                </select>
+			</div>
+
+            <div class="productdetails">
+				<label>Details</label>
+           	  <textarea name="details" rows="8" style="width:600px;" id="details"><%=productInfo[0].p_details%></textarea>
+          	</div>
+			
+            <div class="availablequantity">
+				<label>Available Quantity</label>
+                <input name="availablequantity" type="text" required id="availablequantity" autocomplete="on" value="<%=productInfo[0].p_available_quantity%>">
+          	</div>
+			
+            <div class="productsellingtype">
+				<label>Selling Type</label>
+              	<select name="sellingType" required id="sellingType" onchange="changeVisibility()">
+					<option>Selling</option>
+					<option>Auction</option>
+                </select>
+			</div>
+			
+			<div id="bidding" class="bidding" style="display:none">
+				<label>Bidding Deadline</label>
+                <input name="deadline" type="datetime-local" id="deadline" autocomplete="on">
+          	</div>
+			
+            <div class="productcost">
+				<label>Cost</label>
+				<input name="cost" type="text" required id="cost" autocomplete="on" value="<%=productInfo[0].p_cost%>">
+            </div>
+
+			<div class="productimage">
+            <label>Upload Image</label>
+            <input type="file" name="image" id="image" accept="image/gif, image/jpeg, image/png" onchange="uploadImage()">
+            </div>
+			
+			<!--
+			<div id="imagepicture" class="imagepicture" style="display:none">
+            <img id="picture" src="" alt=""/>
+            </div>
+			-->
+			
+            <br>
+			
+            <div class="formsubmit">
+	            <input name="updateProduct" type="submit" id="updateProduct" value="Update Product" style="width:150px;">
+          	</div>
+        </form>
+        </div>
+    </div>
+    <!-- Footer ================================================================== -->
+
+<div  id="footerSection">
+	<div class="container">
+		<div class="row">
+			<div class="span3">
+				<h5>ACCOUNT</h5>
+				
+				<a href="/updatePersonalInfo">UPDATE PERSONAL INFORMATION</a> 
+				<a href="/sellerLogin">CREATE SELLER ACCOUNT</a> 
+				<a href="/showPurchased">ORDER HISTORY</a>
+				<a href="/listSellers">LIST ALL SELLERS</a>
+				<a href="/logout">LOGOUT</a>  
+				
+			 </div>
+
+			<div id="socialMedia" class="span3 pull-right">
+				<h5>SOCIAL MEDIA </h5>
+				<a href="#"><img width="60" height="60" src="/themes/images/facebook.png" title="facebook" alt="facebook"/></a>
+				<a href="#"><img width="60" height="60" src="/themes/images/twitter.png" title="twitter" alt="twitter"/></a>
+				<a href="#"><img width="60" height="60" src="/themes/images/youtube.png" title="youtube" alt="youtube"/></a>
+			 </div> 
+		 </div>
+		<p class="pull-right">&copy; CmpE 273</p>
+	</div><!-- Container End -->
+	</div>
+    <!-- Placed at the end of the document so the pages load faster ============================================= -->
+    <script src="/themes/js/jquery.js" type="text/javascript"></script>
+	<script src="/themes/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="/themes/js/google-code-prettify/prettify.js"></script>
+	<script src="/themes/js/bootshop.js"></script>
+	<script src="/themes/js/jquery.lightbox-0.5.js"></script>
+	
+	<script>
+	
+		var option1 = {
+			ValueA : 'Antique1',
+			ValueB : 'Antique2',
+			ValueC : 'Antique3'
+		};
+		var option2 = {
+			ValueA : 'Books1',
+			ValueB : 'Books2',
+			ValueC : 'Books3'
+		};
+		var option3 = {
+			ValueA : 'Art1',
+			ValueB : 'Art2',
+			ValueC : 'Art3'
+		};
+		var option4 = {
+			ValueA : 'Camera1',
+			ValueB : 'Camera2',
+			ValueC : 'Camera3',
+			ValueD : 'Photo1',
+			ValueE : 'Photo2',
+			ValueF : 'Photo3'
+		};
+		var option5 = {
+			ValueA : 'Cell1',
+			ValueB : 'Cell2',
+			ValueC : 'Cell3',
+			ValueD : 'Cell4',
+			ValueF : 'Cell5',
+			ValueG : 'Cell6',
+			ValueH : 'Cell7',
+			ValueI : 'Cell8',
+			ValueJ : 'Cell9',
+			ValueK : 'Cell10',
+			ValueL : 'Earphones1',
+			ValueM : 'Earphones2',
+			ValueN : 'Earphones3',
+			ValueO : 'Earphones4',
+			ValueP : 'Earphones5',
+			ValueQ : 'Earphones6',
+			ValueR : 'Earphones7',
+			ValueS : 'Earphones8',
+			ValueT : 'Earphones9',
+			ValueU : 'Earphones10'
+		};
+		
+		var option6 = {
+			ValueA : 'Clothes1',
+			ValueB : 'Clothes2',
+			ValueC : 'Clothes3',
+			ValueD : 'Clothes4',
+			ValueF : 'Clothes5',
+			ValueG : 'Clothes6',
+			ValueH : 'Clothes7',
+			ValueI : 'Clothes8',
+			ValueJ : 'Clothes9',
+			ValueK : 'Clothes10',
+			ValueL : 'Shoes1',
+			ValueM : 'Shoes2',
+			ValueN : 'Shoes3',
+			ValueO : 'Shoes4',
+			ValueP : 'Shoes5',
+			ValueQ : 'Shoes6',
+			ValueR : 'Shoes7',
+			ValueS : 'Shoes8',
+			ValueT : 'Shoes9',
+			ValueU : 'Shoes10',
+			ValueV : 'Socks1',
+			ValueW : 'Socks2',
+			ValueX : 'Socks3',
+			ValueY : 'Socks4',
+			ValueZ : 'Socks5'
+		};
+		
+		var option7 = {
+			ValueA : 'DVD1',
+			ValueB : 'DVD2',
+			ValueC : 'DVD3',
+			ValueD : 'DVD4',
+			ValueF : 'DVD5',
+			ValueG : 'Movie6',
+			ValueH : 'Movie7',
+			ValueI : 'Movie8',
+			ValueJ : 'Movie9',
+			ValueK : 'Movie10'
+		};
+		
+		var option8 = {
+			ValueA : 'General Type1',
+			ValueB : 'General Type2',
+			ValueC : 'General Type3',
+			ValueD : 'General Type4',
+			ValueF : 'General Type5',
+			ValueG : 'General Type6',
+			ValueH : 'General Type7',
+			ValueI : 'General Type8',
+			ValueJ : 'General Type9',
+			ValueK : 'General Type10'
+		};
+		
+		function changeType()
+		{
+			var selectType=document.getElementById('type');
+			selectType.options.length=0;
+			
+			if(document.getElementById('category').value=="Antiques")
+			{
+				for(index in option1)
+				selectType.options[selectType.options.length]=new Option(option1[index], index);
+			}
+
+			else if(document.getElementById('category').value=="Books")
+			{
+				for(index in option2)
+				selectType.options[selectType.options.length]=new Option(option2[index], index);
+			}
+
+			else if(document.getElementById('category').value=="Art")
+			{
+				for(index in option3)
+				selectType.options[selectType.options.length]=new Option(option3[index], index);
+			}
+
+			else if(document.getElementById('category').value=="Cameras & Photo")
+			{
+				for(index in option4)
+				selectType.options[selectType.options.length]=new Option(option4[index], index);
+			}
+
+			else if(document.getElementById('category').value=="Cell Phones & Accessories")
+			{
+				for(index in option5)
+				selectType.options[selectType.options.length]=new Option(option5[index], index);
+			}
+
+			else if(document.getElementById('category').value=="Clothing, Shoes & Accessories")
+			{
+				for(index in option6)
+				selectType.options[selectType.options.length]=new Option(option6[index], index);
+			}
+			else if(document.getElementById('category').value=="DVDs & Movies")
+			{
+				for(index in option7)
+				selectType.options[selectType.options.length]=new Option(option7[index], index);
+			}
+			else
+			{
+				for(index in option8)
+				selectType.options[selectType.options.length]=new Option(option8[index], index);
+			}
+
+/*
+			if(document.getElementById('category').value===("Auction"))
+			{
+				document.getElementById('bidding').style.display = 'block';
+			}
+			if(document.getElementById('category').value===("Auction"))
+			{
+				document.getElementById('bidding').style.display = 'block';
+			}
+			if(document.getElementById('category').value===("Auction"))
+			{
+				document.getElementById('bidding').style.display = 'block';
+			}
+			if(document.getElementById('category').value===("Auction"))
+			{
+				document.getElementById('bidding').style.display = 'block';
+			}
+			if(document.getElementById('category').value===("Auction"))
+			{
+				document.getElementById('bidding').style.display = 'block';
+			}
+*/
+			if(document.getElementById('category').value===("Auction"))
+			{
+				document.getElementById('bidding').style.display = 'block';
+			}
+			
+			else
+			{
+				document.getElementById('bidding').style.display = 'none';
+			}
+		}
+		
+		function uploadImage()
+		{
+			alert("Image Uploaded Successfully: "+document.getElementById('image').value);
+			//document.getElementById('imagepicture').style.display = 'block';
+			//document.getElementById('picture').src="/themes/images/products/11.jpg";
+		}
+		
+		function changeVisibility()
+		{
+			if(document.getElementById('sellingType').value===("Auction"))
+			{
+				document.getElementById('bidding').style.display = 'block';
+			}
+			else
+			{
+				document.getElementById('bidding').style.display = 'none';
+			}
+		}
+		
+		function validateDate()
+		{
+//			var currentDate=new Date();
+	//		var userDate=document.getElementById("deadline").value;
+		//	alert(userDate+" "+currentDate);
+/*
+			if(userDate.getTime()<currentDate.getTime())
+			{
+				alert("User entered past date");
+				return false;
+			}
+			else
+			{
+				alert("User entered correct date");
+				return true;
+			}
+*/
+		/*
+			if(isNaN(document.getElementById("availablequantity").value))
+			{
+				alert("Please enter Numeric value in Quantity");
+				return false;
+			}
+			
+			if(isNaN(document.getElementById("cost").value))
+			{
+				alert("Please enter appropriate Cost");
+				return false;
+			}
+			
+			var element=document.getElementById("sellingType");
+			var op=element.options[element.selectedIndex].text;
+			alert(op);
+			/*
+			if((document.getElementById("sellingType").value.equals("Auction")) && (document.getElementById("availablequantity").value > 1))
+			{
+				alert("Please enter only 1 quantity for bidding at a time");
+				return false;
+			}
+			*/
+			//return false;
+		}
+	</script>
+</body>
+</html>
